@@ -1,0 +1,5 @@
+FROM zawthanoo/jmeter-base:5.3
+MAINTAINER Kubernauts-lab
+		
+EXPOSE 60000
+

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: jmslave
-        image: zawthanoo/jmeter:5.3
+        image: zawthanoo/jmeter-slave:5.3
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 1099
