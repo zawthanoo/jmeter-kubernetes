@@ -1,10 +1,6 @@
-# Jmeter Cluster Support for Kubernetes and OpenShift
-
-## Prerequisits
+# Jmeter Cluster Support for Kubernete
 
 Kubernetes > 1.16
-
-OpenShift version > 3.5
 
 ## TL;DR
 
