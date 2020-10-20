@@ -23,8 +23,6 @@
         <stringProp name="variableNames"></stringProp>
       </CSVDataSet>
       <hashTree/>
-      <com.atlantbh.jmeter.plugins.xmlformatter.XMLFormatPostProcessor guiclass="com.atlantbh.jmeter.plugins.xmlformatter.gui.XMLFormatPostProcessorGui" testclass="com.atlantbh.jmeter.plugins.xmlformatter.XMLFormatPostProcessor" testname="jp@gc - XML Format Post Processor" enabled="true"/>
-      <hashTree/>
       <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="" elementType="Header">
