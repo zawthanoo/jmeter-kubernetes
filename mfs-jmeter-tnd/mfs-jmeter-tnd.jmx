@@ -8,13 +8,13 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
-      <stringProp name="TestPlan.user_define_classpath">mfs-login-encrypt.jar</stringProp>
+      <stringProp name="TestPlan.user_define_classpath">C:\home\wave\jmeter\jmeter-kubernetes\mfs-jmeter-tnd\mfs-login-encrypt.jar</stringProp>
     </TestPlan>
     <hashTree>
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
         <stringProp name="delimiter">,</stringProp>
         <stringProp name="fileEncoding"></stringProp>
-        <stringProp name="filename">mfs-data.csv</stringProp>
+        <stringProp name="filename">C:/home/wave/jmeter/jmeter-kubernetes/mfs-jmeter-tnd/mfs-jmeter-tnd-data.csv</stringProp>
         <boolProp name="ignoreFirstLine">false</boolProp>
         <boolProp name="quotedData">false</boolProp>
         <boolProp name="recycle">true</boolProp>
@@ -22,6 +22,48 @@
         <boolProp name="stopThread">false</boolProp>
         <stringProp name="variableNames"></stringProp>
       </CSVDataSet>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="receiver_msisdn" elementType="Argument">
+            <stringProp name="Argument.name">receiver_msisdn</stringProp>
+            <stringProp name="Argument.value">9979073736</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="receiver_pin" elementType="Argument">
+            <stringProp name="Argument.name">receiver_pin</stringProp>
+            <stringProp name="Argument.value">3131</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="agent_msisdn" elementType="Argument">
+            <stringProp name="Argument.name">agent_msisdn</stringProp>
+            <stringProp name="Argument.value">9971375017</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="agent_pin" elementType="Argument">
+            <stringProp name="Argument.name">agent_pin</stringProp>
+            <stringProp name="Argument.value">1235</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="receive_money_msisdn" elementType="Argument">
+            <stringProp name="Argument.name">receive_money_msisdn</stringProp>
+            <stringProp name="Argument.value">9422699922</stringProp>
+            <stringProp name="Argument.desc">who don&apos;t have wave account</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="receive_money_serectCode" elementType="Argument">
+            <stringProp name="Argument.name">receive_money_serectCode</stringProp>
+            <stringProp name="Argument.value">7C4A8D09CA3762AF61E59520943DC26494F8941B</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">hashValue of 123456</stringProp>
+          </elementProp>
+          <elementProp name="receive_money_nrc" elementType="Argument">
+            <stringProp name="Argument.name">receive_money_nrc</stringProp>
+            <stringProp name="Argument.value">1/AhGaYa(N)456789</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
       <hashTree/>
       <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
         <collectionProp name="HeaderManager.headers">
@@ -40,9 +82,9 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">2</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">2</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <longProp name="ThreadGroup.start_time">1375525852000</longProp>
         <longProp name="ThreadGroup.end_time">1375525852000</longProp>
@@ -153,8 +195,6 @@ sessionId = vars.get(&quot;sessionId&quot;);
 msisdn = vars.get(&quot;msisdn&quot;);
 pin = vars.get(&quot;pin&quot;);
 
-vars.put(&quot;msisdn&quot;, msisdn);
-
 log.info(&quot;MFS Login Info : &quot; + sessionId + &quot; &quot; + msisdn + &quot; &quot; + pin);
 
 HashPin hashPin = new HashPin();
@@ -169,11 +209,11 @@ vars.put(&quot;encryptedPin&quot;, encryptedPin);
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group financial" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group financial" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">2</stringProp>
+          <stringProp name="LoopController.loops">5</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -184,6 +224,15 @@ vars.put(&quot;encryptedPin&quot;, encryptedPin);
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Amount Increase Counter" enabled="true">
+          <stringProp name="CounterConfig.start">6</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">amount</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">true</boolProp>
+        </CounterConfig>
+        <hashTree/>
         <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults - For SDP" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
@@ -198,110 +247,6 @@ vars.put(&quot;encryptedPin&quot;, encryptedPin);
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </ConfigTestElement>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get SendMoney Fee" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:v2=&quot;http://www.utiba.com/xml/ns/sdp/soap/service/v2&quot;&gt;&#xd;
-   &lt;soapenv:Header/&gt;&#xd;
-   &lt;soapenv:Body&gt;&#xd;
-      &lt;v2:sendmoneyRequest&gt;&#xd;
-         &lt;v2:quote&gt;true&lt;/v2:quote&gt;&#xd;
-         &lt;v2:amount&gt;10&lt;/v2:amount&gt;&#xd;
-         &lt;v2:sourcechannel&gt;CUSTOMER_APP&lt;/v2:sourcechannel&gt;&#xd;
-         &lt;v2:sendermsisdn&gt;${msisdn}&lt;/v2:sendermsisdn&gt;&#xd;
-         &lt;v2:recievermsisdn&gt;9791009101&lt;/v2:recievermsisdn&gt;&#xd;
-         &lt;v2:transfertype&gt;TOMA&lt;/v2:transfertype&gt;&#xd;
-         &lt;v2:issenderTlnrmm&gt;N&lt;/v2:issenderTlnrmm&gt;&#xd;
-         &lt;v2:isrecieverTlnrmm&gt;N&lt;/v2:isrecieverTlnrmm&gt;&#xd;
-      &lt;/v2:sendmoneyRequest&gt;&#xd;
-   &lt;/soapenv:Body&gt;&#xd;
-&lt;/soapenv:Envelope&gt;</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path"></stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor" testname="SOAP Message UsernameToken" enabled="true">
-            <stringProp name="actor"></stringProp>
-            <boolProp name="addCreated">true</boolProp>
-            <boolProp name="addNonce">true</boolProp>
-            <boolProp name="mustUnderstand">true</boolProp>
-            <stringProp name="password">${pin}</stringProp>
-            <stringProp name="passwordType">Password Digest</stringProp>
-            <boolProp name="precisionInMilliSeconds">true</boolProp>
-            <stringProp name="username">${msisdn}</stringProp>
-          </nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SendMoney" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:v2=&quot;http://www.utiba.com/xml/ns/sdp/soap/service/v2&quot;&gt;&#xd;
-   &lt;soapenv:Header/&gt;&#xd;
-   &lt;soapenv:Body&gt;&#xd;
-      &lt;v2:sendmoneyRequest&gt;&#xd;
-         &lt;v2:quote&gt;false&lt;/v2:quote&gt;&#xd;
-         &lt;v2:amount&gt;10&lt;/v2:amount&gt;&#xd;
-         &lt;v2:sourcechannel&gt;CUSTOMER_APP&lt;/v2:sourcechannel&gt;&#xd;
-         &lt;v2:sendermsisdn&gt;${msisdn}&lt;/v2:sendermsisdn&gt;&#xd;
-         &lt;v2:recievermsisdn&gt;9791009101&lt;/v2:recievermsisdn&gt;&#xd;
-         &lt;v2:transfertype&gt;TOMA&lt;/v2:transfertype&gt;&#xd;
-         &lt;v2:issenderTlnrmm&gt;N&lt;/v2:issenderTlnrmm&gt;&#xd;
-         &lt;v2:isrecieverTlnrmm&gt;N&lt;/v2:isrecieverTlnrmm&gt;&#xd;
-      &lt;/v2:sendmoneyRequest&gt;&#xd;
-   &lt;/soapenv:Body&gt;&#xd;
-&lt;/soapenv:Envelope&gt;</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path"></stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor" testname="SOAP Message UsernameToken" enabled="true">
-            <stringProp name="actor"></stringProp>
-            <boolProp name="addCreated">true</boolProp>
-            <boolProp name="addNonce">true</boolProp>
-            <boolProp name="mustUnderstand">true</boolProp>
-            <stringProp name="password">${pin}</stringProp>
-            <stringProp name="passwordType">Password Digest</stringProp>
-            <boolProp name="precisionInMilliSeconds">true</boolProp>
-            <stringProp name="username">${msisdn}</stringProp>
-          </nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor>
-          <hashTree/>
-        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Check Beneficiary" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -344,6 +289,528 @@ vars.put(&quot;encryptedPin&quot;, encryptedPin);
             <stringProp name="passwordType">Password Digest</stringProp>
             <boolProp name="precisionInMilliSeconds">true</boolProp>
             <stringProp name="username">${msisdn}</stringProp>
+          </nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get SendMoney Fee" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:v2=&quot;http://www.utiba.com/xml/ns/sdp/soap/service/v2&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;v2:sendmoneyRequest&gt;&#xd;
+         &lt;v2:quote&gt;true&lt;/v2:quote&gt;&#xd;
+         &lt;v2:amount&gt;10&lt;/v2:amount&gt;&#xd;
+         &lt;v2:sourcechannel&gt;CUSTOMER_APP&lt;/v2:sourcechannel&gt;&#xd;
+         &lt;v2:sendermsisdn&gt;${msisdn}&lt;/v2:sendermsisdn&gt;&#xd;
+         &lt;v2:recievermsisdn&gt;${receiver_msisdn}&lt;/v2:recievermsisdn&gt;&#xd;
+         &lt;v2:transfertype&gt;TOMA&lt;/v2:transfertype&gt;&#xd;
+         &lt;v2:issenderTlnrmm&gt;N&lt;/v2:issenderTlnrmm&gt;&#xd;
+         &lt;v2:isrecieverTlnrmm&gt;N&lt;/v2:isrecieverTlnrmm&gt;&#xd;
+      &lt;/v2:sendmoneyRequest&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor" testname="SOAP Message UsernameToken" enabled="true">
+            <stringProp name="actor"></stringProp>
+            <boolProp name="addCreated">true</boolProp>
+            <boolProp name="addNonce">true</boolProp>
+            <boolProp name="mustUnderstand">true</boolProp>
+            <stringProp name="password">${pin}</stringProp>
+            <stringProp name="passwordType">Password Digest</stringProp>
+            <boolProp name="precisionInMilliSeconds">true</boolProp>
+            <stringProp name="username">${msisdn}</stringProp>
+          </nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="BillCollect - Myan Care" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:v2=&quot;http://www.utiba.com/xml/ns/sdp/soap/service/v2&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;v2:billcollectRequest&gt;&#xd;
+         &lt;v2:quote&gt;false&lt;/v2:quote&gt;&#xd;
+         &lt;v2:amount&gt;${amount}&lt;/v2:amount&gt;&#xd;
+         &lt;v2:billerReference&gt;9777002150&lt;/v2:billerReference&gt;         &#xd;
+         &lt;v2:customerRefNumber&gt;9791009101&lt;/v2:customerRefNumber&gt;         &#xd;
+         &lt;v2:billerName&gt;Myan Care&lt;/v2:billerName&gt;&#xd;
+         &lt;v2:totalAmount&gt;10&lt;/v2:totalAmount&gt;&#xd;
+         &lt;v2:poi&gt;ZTO&lt;/v2:poi&gt;&#xd;
+         &lt;v2:payer&gt;${msisdn}&lt;/v2:payer&gt;&#xd;
+      &lt;/v2:billcollectRequest&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor" testname="SOAP Message UsernameToken" enabled="true">
+            <stringProp name="actor"></stringProp>
+            <boolProp name="addCreated">true</boolProp>
+            <boolProp name="addNonce">true</boolProp>
+            <boolProp name="mustUnderstand">true</boolProp>
+            <stringProp name="password">${pin}</stringProp>
+            <stringProp name="passwordType">Password Digest</stringProp>
+            <boolProp name="precisionInMilliSeconds">true</boolProp>
+            <stringProp name="username">${msisdn}</stringProp>
+          </nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="SendMoney - Receive Money Group" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SendMoney" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:v2=&quot;http://www.utiba.com/xml/ns/sdp/soap/service/v2&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;v2:sendmoneyRequest&gt;&#xd;
+         &lt;v2:quote&gt;false&lt;/v2:quote&gt;&#xd;
+         &lt;v2:amount&gt;${amount}&lt;/v2:amount&gt;&#xd;
+         &lt;v2:sourcechannel&gt;CUSTOMER_APP&lt;/v2:sourcechannel&gt;&#xd;
+         &lt;v2:sendermsisdn&gt;${msisdn}&lt;/v2:sendermsisdn&gt;&#xd;
+         &lt;v2:recievermsisdn&gt;${receive_money_msisdn}&lt;/v2:recievermsisdn&gt;&#xd;
+         &lt;v2:recieverpoi&gt;${receive_money_nrc}&lt;/v2:recieverpoi&gt;&#xd;
+         &lt;v2:secretecode&gt;${receive_money_serectCode}&lt;/v2:secretecode&gt;&#xd;
+         &lt;v2:transfertype&gt;TOOTC&lt;/v2:transfertype&gt;&#xd;
+         &lt;v2:issenderTlnrmm&gt;N&lt;/v2:issenderTlnrmm&gt;&#xd;
+         &lt;v2:isrecieverTlnrmm&gt;N&lt;/v2:isrecieverTlnrmm&gt;&#xd;
+      &lt;/v2:sendmoneyRequest&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor" testname="SOAP Message UsernameToken" enabled="true">
+              <stringProp name="actor"></stringProp>
+              <boolProp name="addCreated">true</boolProp>
+              <boolProp name="addNonce">true</boolProp>
+              <boolProp name="mustUnderstand">true</boolProp>
+              <stringProp name="password">${pin}</stringProp>
+              <stringProp name="passwordType">Password Digest</stringProp>
+              <boolProp name="precisionInMilliSeconds">true</boolProp>
+              <stringProp name="username">${msisdn}</stringProp>
+            </nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">receive_money_transId</stringProp>
+              <stringProp name="RegexExtractor.regex">&lt;transId&gt;(.+?)&lt;/transId&gt;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">500</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">1000</stringProp>
+              <stringProp name="RandomTimer.range">100</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ReceiveMoney" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:v2=&quot;http://www.utiba.com/xml/ns/sdp/soap/service/v2&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;v2:recievemoneyRequest&gt;&#xd;
+         &lt;v2:clientTransRef&gt;${receive_money_nrc}&lt;/v2:clientTransRef&gt;&#xd;
+         &lt;v2:quote&gt;false&lt;/v2:quote&gt;&#xd;
+         &lt;v2:amount&gt;0&lt;/v2:amount&gt;&#xd;
+         &lt;v2:sourcechannel&gt;CUSTOMER_APP&lt;/v2:sourcechannel&gt;&#xd;
+         &lt;v2:secretecode&gt;${receive_money_serectCode}&lt;/v2:secretecode&gt;&#xd;
+         &lt;v2:vouchercode&gt;${receive_money_transId}&lt;/v2:vouchercode&gt;&#xd;
+         &lt;v2:receivernrc&gt;${receive_money_nrc}&lt;/v2:receivernrc&gt;&#xd;
+      &lt;/v2:recievemoneyRequest&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor" testname="SOAP Message UsernameToken" enabled="true">
+              <stringProp name="actor"></stringProp>
+              <boolProp name="addCreated">true</boolProp>
+              <boolProp name="addNonce">true</boolProp>
+              <boolProp name="mustUnderstand">true</boolProp>
+              <stringProp name="password">${agent_pin}</stringProp>
+              <stringProp name="passwordType">Password Digest</stringProp>
+              <boolProp name="precisionInMilliSeconds">true</boolProp>
+              <stringProp name="username">${agent_msisdn}</stringProp>
+            </nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="CashOut - Group" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CashOut" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:v2=&quot;http://www.utiba.com/xml/ns/sdp/soap/service/v2&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;v2:telncashoutRequest&gt;&#xd;
+		&lt;v2:quote&gt;false&lt;/v2:quote&gt;&#xd;
+		&lt;v2:amount&gt;${amount}&lt;/v2:amount&gt;&#xd;
+		&lt;v2:to&gt;${msisdn}&lt;/v2:to&gt;&#xd;
+		&lt;v2:sourcechannel&gt;CUSTOMER_APP&lt;/v2:sourcechannel&gt;&#xd;
+      &lt;/v2:telncashoutRequest&gt;&#xd;
+   &lt;/soapenv:Body&gt;   &#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor" testname="SOAP Message UsernameToken" enabled="true">
+              <stringProp name="actor"></stringProp>
+              <boolProp name="addCreated">true</boolProp>
+              <boolProp name="addNonce">true</boolProp>
+              <boolProp name="mustUnderstand">true</boolProp>
+              <stringProp name="password">${agent_pin}</stringProp>
+              <stringProp name="passwordType">Password Digest</stringProp>
+              <boolProp name="precisionInMilliSeconds">true</boolProp>
+              <stringProp name="username">${agent_msisdn}</stringProp>
+            </nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">cash_out_transId</stringProp>
+              <stringProp name="RegexExtractor.regex">&lt;transId&gt;(.+?)&lt;/transId&gt;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">500</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">1000</stringProp>
+              <stringProp name="RandomTimer.range">100</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Session" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:urn=&quot;urn:UMARKETSCWS&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;urn:createsession/&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">172.22.254.20</stringProp>
+            <stringProp name="HTTPSampler.port">8280</stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/services/umarketsc</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">cash_out_sessionId</stringProp>
+              <stringProp name="RegexExtractor.regex">&lt;ns3:sessionid&gt;(.+?)&lt;/ns3:sessionid&gt;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">500</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">1000</stringProp>
+              <stringProp name="RandomTimer.range">100</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:urn=&quot;urn:UMARKETSCWS&quot; xmlns:std=&quot;http://www.utiba.com/delirium/ws/StdQuery&quot; xmlns:misc=&quot;http://www.utiba.com/delirium/ws/Misc&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;urn:login&gt;&#xd;
+         &lt;urn:loginRequest&gt;&#xd;
+            &lt;urn:sessionid&gt;${cash_out_sessionId}&lt;/urn:sessionid&gt;&#xd;
+            &lt;urn:initiator&gt;${msisdn}&lt;/urn:initiator&gt;&#xd;
+            &lt;urn:pin&gt;${cash_out_encryptedPin}&lt;/urn:pin&gt;&#xd;
+         &lt;/urn:loginRequest&gt;&#xd;
+      &lt;/urn:login&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">172.22.254.20</stringProp>
+            <stringProp name="HTTPSampler.port">8280</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/services/umarketsc</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import HashPin;
+
+sessionId = vars.get(&quot;cash_out_sessionId&quot;);
+msisdn = vars.get(&quot;msisdn&quot;);
+pin = vars.get(&quot;pin&quot;);
+
+log.info(&quot;MFS Login Info : &quot; + sessionId + &quot; &quot; + msisdn + &quot; &quot; + pin);
+
+HashPin hashPin = new HashPin();
+encryptedPin = hashPin.generatePin(sessionId, msisdn, pin);
+log.info(&quot;Encrypted Pin : &quot; + encryptedPin);
+vars.put(&quot;cash_out_encryptedPin&quot;, encryptedPin);
+
+
+
+</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">500</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">1000</stringProp>
+              <stringProp name="RandomTimer.range">100</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Confirm - Cash Out" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:urn=&quot;urn:UMARKETSCWS&quot; xmlns:std=&quot;http://www.utiba.com/delirium/ws/StdQuery&quot; xmlns:misc=&quot;http://www.utiba.com/delirium/ws/Misc&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;urn:confirm&gt;&#xd;
+         &lt;urn:confirmRequest&gt;&#xd;
+            &lt;urn:sessionid&gt;${cash_out_sessionId}&lt;/urn:sessionid&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;urn:transid&gt;${cash_out_transId}&lt;/urn:transid&gt;&#xd;
+            &lt;urn:action&gt;commit&lt;/urn:action&gt;&#xd;
+         &lt;/urn:confirmRequest&gt;&#xd;
+      &lt;/urn:confirm&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">172.22.254.20</stringProp>
+            <stringProp name="HTTPSampler.port">8280</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/services/umarketsc</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CashIn-CashDeposit" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:v2=&quot;http://www.utiba.com/xml/ns/sdp/soap/service/v2&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;v2:telncashinRequest&gt;&#xd;
+         &lt;v2:quote&gt;false&lt;/v2:quote&gt;&#xd;
+         &lt;v2:amount&gt;${amount}&lt;/v2:amount&gt;&#xd;
+         &lt;v2:to&gt;${msisdn}&lt;/v2:to&gt;&#xd;
+         &lt;v2:sourcechannel&gt;CUSTOMER_APP&lt;/v2:sourcechannel&gt;&#xd;
+      &lt;/v2:telncashinRequest&gt;&#xd;
+   &lt;/soapenv:Body&gt;   &#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor" testname="SOAP Message UsernameToken" enabled="true">
+            <stringProp name="actor"></stringProp>
+            <boolProp name="addCreated">true</boolProp>
+            <boolProp name="addNonce">true</boolProp>
+            <boolProp name="mustUnderstand">true</boolProp>
+            <stringProp name="password">${agent_pin}</stringProp>
+            <stringProp name="passwordType">Password Digest</stringProp>
+            <boolProp name="precisionInMilliSeconds">true</boolProp>
+            <stringProp name="username">${agent_msisdn}</stringProp>
           </nz.co.breakpoint.jmeter.modifiers.WSSUsernameTokenPreProcessor>
           <hashTree/>
         </hashTree>
@@ -470,6 +937,45 @@ vars.put(&quot;encryptedPin&quot;, encryptedPin);
         </elementProp>
         <stringProp name="classname">org.apache.jmeter.visualizers.backend.influxdb.InfluxdbBackendListenerClient</stringProp>
       </BackendListener>
+      <hashTree/>
+      <com.atlantbh.jmeter.plugins.xmlformatter.XMLFormatPostProcessor guiclass="com.atlantbh.jmeter.plugins.xmlformatter.gui.XMLFormatPostProcessorGui" testclass="com.atlantbh.jmeter.plugins.xmlformatter.XMLFormatPostProcessor" testname="jp@gc - XML Format Post Processor" enabled="false"/>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
       <hashTree/>
     </hashTree>
   </hashTree>
